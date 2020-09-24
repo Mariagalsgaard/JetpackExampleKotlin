@@ -1,13 +1,17 @@
 package org.pondar.jetpackexamplekotlin.ui.home
 
-import androidx.lifecycle.LiveData
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
+    val data = MutableLiveData<String>("")
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun downloadFromServer() {
+        if (data.value.isNullOrEmpty())  //do we have data already?
+        {
+            data.value = "Data is downloaded"
+            Log.d("download","download done")
+        }
     }
-    val text: LiveData<String> = _text
 }
