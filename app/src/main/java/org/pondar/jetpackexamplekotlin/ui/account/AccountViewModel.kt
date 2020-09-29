@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import org.pondar.jetpackexamplekotlin.R
 import org.pondar.jetpackexamplekotlin.models.Gender
 import org.pondar.jetpackexamplekotlin.models.User
@@ -13,6 +16,8 @@ import org.pondar.jetpackexamplekotlin.tools.Utils.validate
 
 
 class AccountViewModel(application: Application) : AndroidViewModel(application) {
+
+    var title: String = "My string"
 
     //user is for the signup part
     var user = User()
@@ -23,8 +28,10 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
     var signupPassword = ""
     var signupPasswordRepeat = ""
 
+    var loginOkay = MutableLiveData<Boolean>(false)
 
-    fun signUp(view: View) {
+
+    fun signUp(view:View) {
         if (!validate(
                 user.fullName, user.email, user.postalAdress, user.city,
                 context = getApplication<Application>().applicationContext
@@ -66,6 +73,9 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         Log.d("login","login pressed : user $loginEmail - pword: $loginPassword")
         if (!validate(loginEmail, loginPassword,context = getApplication<Application>().applicationContext))
             return
+        else
+            loginOkay.value=true
+
     }
 
 

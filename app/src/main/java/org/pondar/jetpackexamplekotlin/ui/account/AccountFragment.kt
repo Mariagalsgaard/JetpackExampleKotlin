@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import org.pondar.jetpackexamplekotlin.R
 import org.pondar.jetpackexamplekotlin.databinding.FragmentAccountBinding
 
@@ -39,14 +41,15 @@ class AccountFragment : Fragment() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        viewmodel.loginOkay.observe(viewLifecycleOwner, Observer {
+            if (it==true)
+            {
+                findNavController().navigate(R.id.action_nav_account_to_loggedInFragment)
+            }
+        })
 
+        super.onActivityCreated(savedInstanceState)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-
-        super.onCreate(savedInstanceState)
-    }
 }

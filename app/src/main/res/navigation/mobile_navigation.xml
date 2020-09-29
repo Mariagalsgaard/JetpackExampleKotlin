@@ -27,5 +27,14 @@
         android:id="@+id/nav_account"
         android:name="org.pondar.jetpackexamplekotlin.ui.account.AccountFragment"
         android:label="@string/account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_nav_account_to_loggedInFragment"
+            app:destination="@id/nav_loggedInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_loggedInFragment"
+        android:name="org.pondar.jetpackexamplekotlin.ui.loggedin.LoggedInFragment"
+        android:label="logged_in_fragment"
+        tools:layout="@layout/logged_in_fragment" />
 </navigation>
