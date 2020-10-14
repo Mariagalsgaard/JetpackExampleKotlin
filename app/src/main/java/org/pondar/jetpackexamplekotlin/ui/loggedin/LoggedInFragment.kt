@@ -1,12 +1,15 @@
 package org.pondar.jetpackexamplekotlin.ui.loggedin
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import org.pondar.jetpackexamplekotlin.R
+import org.pondar.jetpackexamplekotlin.ui.home.HomeViewModel
 
 class LoggedInFragment : Fragment() {
 
@@ -23,10 +26,16 @@ class LoggedInFragment : Fragment() {
         return inflater.inflate(R.layout.logged_in_fragment, container, false)
     }
 
+    val args: LoggedInFragmentArgs by navArgs()
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(LoggedInViewModel::class.java)
+
+        viewModel = ViewModelProvider(this).get(LoggedInViewModel::class.java)
         // TODO: Use the ViewModel
+        Log.d("LoggedInFragment", "user = ${args.user}")
+
     }
 
 }

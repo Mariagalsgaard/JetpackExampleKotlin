@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import org.pondar.jetpackexamplekotlin.R
 import org.pondar.jetpackexamplekotlin.databinding.FragmentAccountBinding
+import org.pondar.jetpackexamplekotlin.ui.loggedin.LoggedInFragment
 
 
 class AccountFragment : Fragment() {
@@ -45,7 +46,14 @@ class AccountFragment : Fragment() {
         viewmodel.loginOkay.observe(viewLifecycleOwner, Observer {
             if (it==true)
             {
-                findNavController().navigate(R.id.action_nav_account_to_loggedInFragment)
+               // val action = LoggedInFragmentD.confirmationAction(amount)
+
+                //without any parameters just use the ID
+               // findNavController().navigate(R.id.action_nav_account_to_loggedInFragment)
+
+                val action = AccountFragmentDirections.actionNavAccountToLoggedInFragment(viewmodel.user)
+                findNavController().navigate(action)
+                //with parameters use the two lines above
             }
         })
 

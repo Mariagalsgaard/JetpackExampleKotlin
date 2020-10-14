@@ -36,5 +36,9 @@
         android:id="@+id/nav_loggedInFragment"
         android:name="org.pondar.jetpackexamplekotlin.ui.loggedin.LoggedInFragment"
         android:label="logged_in_fragment"
-        tools:layout="@layout/logged_in_fragment" />
+        tools:layout="@layout/logged_in_fragment" >
+        <argument
+            android:name="user"
+            app:argType="org.pondar.jetpackexamplekotlin.models.User" />
+    </fragment>
 </navigation>
