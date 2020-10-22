@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
 
         val textView: TextView = root.findViewById(R.id.text_home)
         homeViewModel.data.observe(viewLifecycleOwner, {
-            //"it" is the same as homeViewModel.data.values
+            //"it" is the same as homeViewModel.data.value
             textView.text = it
             Log.d("observer","new value observed: $it")
         })

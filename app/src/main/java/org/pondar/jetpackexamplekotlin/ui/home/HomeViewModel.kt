@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
-    val data = MutableLiveData<String>("")
+    val data = MutableLiveData("")
 
     fun downloadFromServer() {
         if (data.value.isNullOrEmpty())  //do we have data already?

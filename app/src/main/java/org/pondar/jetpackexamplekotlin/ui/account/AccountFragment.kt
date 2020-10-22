@@ -46,8 +46,6 @@ class AccountFragment : Fragment() {
         viewmodel.loginOkay.observe(viewLifecycleOwner, Observer {
             if (it==true)
             {
-               // val action = LoggedInFragmentD.confirmationAction(amount)
-
                 //without any parameters just use the ID
                // findNavController().navigate(R.id.action_nav_account_to_loggedInFragment)
 

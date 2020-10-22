@@ -17,8 +17,6 @@ import org.pondar.jetpackexamplekotlin.tools.Utils.validate
 
 class AccountViewModel(application: Application) : AndroidViewModel(application) {
 
-    var title: String = "My string"
-
     //user is for the signup part
     var user = User()
 
@@ -28,7 +26,7 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
     var signupPassword = ""
     var signupPasswordRepeat = ""
 
-    var loginOkay = MutableLiveData<Boolean>(false)
+    var loginOkay = MutableLiveData(false)
 
 
     fun signUp(view:View) {
