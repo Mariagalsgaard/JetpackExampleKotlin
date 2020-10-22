@@ -14,4 +14,10 @@ class HomeViewModel : ViewModel() {
             Log.d("download","download done")
         }
     }
+
+    //called when viewmodel is destroyed
+    override fun onCleared() {
+        super.onCleared()
+        //save data locally - the
+    }
 }
