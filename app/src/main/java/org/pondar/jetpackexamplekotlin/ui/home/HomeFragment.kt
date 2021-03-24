@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_home.*
 import org.pondar.jetpackexamplekotlin.R
 
 class HomeFragment : Fragment() {
@@ -35,4 +38,13 @@ class HomeFragment : Fragment() {
 
         return root
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        aboutButton.setOnClickListener{
+            findNavController().navigate(R.id.action_nav_home_to_nav_about)
+        }
+    }
+
+
 }
