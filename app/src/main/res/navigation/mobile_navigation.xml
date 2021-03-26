@@ -11,7 +11,7 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_nav_home_to_nav_about"
+            android:id="@+id/aboutAction"
             app:destination="@id/nav_about" />
     </fragment>
 
@@ -50,5 +50,10 @@
         android:id="@+id/nav_about"
         android:name="org.pondar.jetpackexamplekotlin.ui.about.AboutFragment"
         android:label="@string/menu_about"
-        tools:layout="@layout/about_fragment" />
+        tools:layout="@layout/about_fragment" >
+        <argument
+            android:name="aboutArgument"
+            app:argType="string"
+            android:defaultValue="SendingStuff" />
+    </fragment>
 </navigation>
